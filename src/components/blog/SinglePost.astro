@@ -4,7 +4,7 @@ import getReadingTime from 'reading-time';
 import { marked } from 'marked';
 
 import Image from '~/components/common/Image.astro';
-import PostTags from '~/components/blog/Tags.astro';
+import Projects from '~/components/blog/Projects.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
 
 import { getPermalink } from '~/utils/permalinks';
@@ -77,7 +77,7 @@ const { post } = Astro.props;
       <Fragment set:html={marked.parse(post['pair:description'])} />
     </div>
     <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
-      <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
+      <Projects projectsUris={post['pair:documents']} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <!-- <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" /> -->
     </div>
   </article>

@@ -2,7 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
-import PostTags from '~/components/blog/Tags.astro';
+import Projects from '~/components/blog/Projects.astro';
 
 import { APP_BLOG } from '~/utils/config';
 import type { Post } from '~/types';
@@ -78,8 +78,8 @@ const link = '/blog/' + encodeURIComponent(post.id);
     </header>
 
     {post['pair:comment'] && <p class="flex-grow text-muted dark:text-slate-400 text-lg">{post['pair:comment']}</p>}
-    <!-- <footer class="mt-5">
-      <PostTags tags={post.tags} />
-    </footer> -->
+    <footer class="mt-5">
+      <Projects projectsUris={post['pair:documents']} />
+    </footer>
   </div>
 </article>
