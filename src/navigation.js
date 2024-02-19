@@ -3,28 +3,28 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: "L'association",
       links: [
         {
-          text: 'SaaS',
+          text: "Statuts, raison d'être, code social",
           href: getPermalink('/homes/saas'),
         },
         {
-          text: 'Startup',
+          text: 'Organisations membres',
           href: getPermalink('/homes/startup'),
         },
         {
-          text: 'Mobile App',
+          text: "L'équipe",
           href: getPermalink('/homes/mobile-app'),
         },
         {
-          text: 'Personal',
+          text: 'Histoire',
           href: getPermalink('/homes/personal'),
         },
       ],
     },
     {
-      text: 'Pages',
+      text: 'Projets',
       links: [
         {
           text: 'Features (Anchor Link)',
@@ -111,8 +111,25 @@ export const headerData = {
       ],
     },
     {
-      text: 'Widgets',
-      href: '#',
+      text: 'Communauté',
+      links: [
+        {
+          text: 'Forum',
+          href: 'https://forums.assemblee-virtuelle.org',
+        },
+        {
+          text: 'Chat',
+          href: 'https://forums.assemblee-virtuelle.org/chat',
+        },
+        {
+          text: 'Peertube',
+          href: 'https://peertube.virtual-assembly.org/',
+        },
+        {
+          text: 'GitHub',
+          href: 'https://github.com/assemblee-virtuelle',
+        },
+      ],
     },
   ],
   actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
