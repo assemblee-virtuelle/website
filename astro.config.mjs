@@ -71,6 +71,14 @@ export default defineConfig({
     rehypePlugins: [responsiveTablesRehypePlugin],
   },
 
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['fr', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
+
   vite: {
     resolve: {
       alias: {

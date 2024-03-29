@@ -8,28 +8,30 @@ import Pagination from '~/components/blog/Pagination.astro';
 
 import dataProvider from '~/config/dataProvider';
 
-export const getStaticPaths = (async ({ paginate }) => {
+export const getStaticPaths = async ({ paginate }) => {
+  const allLocales = ['fr', 'en'];
   const { data } = await dataProvider.getList('BlogPost');
-  return paginate(data, {
-    pageSize: 8,
+  return allLocales.flatMap((locale) => {
+    const dataByLocale = data.filter((post) => locale === 'fr');
+    return paginate(dataByLocale, {
+      params: { locale },
+      pageSize: 8,
+    });
   });
-}) satisfies GetStaticPaths;
+}; /*satisfies GetStaticPaths*/
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page } = Astro.props as Props;
+const { page } = Astro.props; /*as Props*/
 
 const metadata = {
   title: 'The Blog',
 };
-
 ---
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="Les dernières actualités de l'Assemblée Virtuelle et des projets qu'elle porte"
-    >
+    <Headline subtitle="Les dernières actualités de l'Assemblée Virtuelle et des projets qu'elle porte">
       Le Blog de l'AV
     </Headline>
     <BlogList posts={page.data} />
