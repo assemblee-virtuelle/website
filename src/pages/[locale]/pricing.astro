@@ -7,9 +7,15 @@ import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+export async function getStaticPaths() {
+  return [{ params: { locale: 'en' } }, { params: { locale: 'fr' } }];
+}
+
 const metadata = {
   title: 'Pricing',
 };
+
+const { locale } = Astro.params;
 ---
 
 <Layout metadata={metadata}>
