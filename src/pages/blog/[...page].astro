@@ -10,7 +10,6 @@ import dataProvider from '~/config/dataProvider';
 
 export const getStaticPaths = (async ({ paginate }) => {
   const { data } = await dataProvider.getList('BlogPost', { sort: { field: 'dc:created', order: 'DESC' } });
-  console.log('reload');
   return paginate(data, {
     pageSize: 8,
   });
