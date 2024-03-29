@@ -26,9 +26,9 @@ const { post } = Astro.props;
       <div class="flex justify-between flex-col sm:flex-row max-w-4xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-          <time datetime={String(post['dc:created'])} class="inline-block"
+          <!-- <time datetime={String(post['dc:created'])} class="inline-block"
             >{getFormattedDate(new Date(post['dc:created']))}</time
-          >
+          > -->
           {
             post.category && (
               <>
@@ -80,7 +80,7 @@ const { post } = Astro.props;
       <Fragment set:html={marked.parse(post['pair:description'])} />
     </div>
     <div class="mx-auto px-6 sm:px-6 max-w-4xl mt-8 flex justify-between flex-col sm:flex-row">
-      <Author personUri={post['dc:creator']} />
+      <!-- <Author personUri={post['dc:creator']} /> -->
       <Projects projectsUris={post['pair:documents']} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <!-- <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" /> -->
     </div>

@@ -1,6 +1,6 @@
 site:
   name: Assemblée Virtuelle
-  site: 'https://blog.assemblee-virtuelle.org'
+  site: 'https://astro.assemblee-virtuelle.org'
   base: '/'
   trailingSlash: false
 

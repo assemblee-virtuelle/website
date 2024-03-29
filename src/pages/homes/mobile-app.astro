@@ -14,9 +14,6 @@ import Stats from '~/components/widgets/Stats.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 
-import appStoreImg from '~/assets/images/app-store.png';
-import googlePlayImg from '~/assets/images/google-play.png';
-
 const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
 const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
 
@@ -65,18 +62,8 @@ const metadata = {
       <span class="hidden sm:inline">
         Unlock boundless creativity at your fingertips: your gateway to innovative design.
       </span>
-       Download now and embark on a journey to elevate your projects like never before.
+      Download now and embark on a journey to elevate your projects like never before.
     </Fragment>
-
-    <div slot="actions" class="flex max-w-sm gap-4">
-      <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
-      </Button>
-
-      <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
-      </Button>
-    </div>
   </Hero2>
 
   <!-- Features3 Widget ************** -->
@@ -284,7 +271,7 @@ const metadata = {
     title="Download our app now!"
     subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
   >
-    <div slot="actions" class="flex max-w-sm gap-4">
+    <!-- <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
         <Image src={appStoreImg} alt="App Store Image" width={200} />
       </Button>
@@ -292,6 +279,6 @@ const metadata = {
       <Button variant="link" href={googlePlayDownloadLink}>
         <Image src={googlePlayImg} alt="Google Play Image" width={200} />
       </Button>
-    </div>
+    </div> -->
   </CallToAction>
 </Layout>
