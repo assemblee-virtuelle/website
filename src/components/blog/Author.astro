@@ -1,0 +1,31 @@
+---
+import { getPermalink } from '~/utils/permalinks';
+
+import dataProvider from '~/config/dataProvider';
+
+export interface Props {
+  personUri: string;
+}
+
+const { personUri } = Astro.props;
+
+const { data: person } = await dataProvider.getOne('Person', {
+  id: personUri,
+});
+
+console.log('person', person);
+---
+
+{
+  person && (
+    <div class="flex">
+      <div class="flex-none">
+        <img src={person.image} class="w-24 h-24 rounded-md" />
+      </div>
+      <div class="grow pl-3 prose">
+        <h3>Auteur: {person['pair:label']}</h3>
+        <p>{person['pair:comment']}</p>
+      </div>
+    </div>
+  )
+}

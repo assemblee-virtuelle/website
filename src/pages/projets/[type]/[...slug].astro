@@ -1,0 +1,34 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+import dataProvider from '~/config/dataProvider';
+import { projectTypes } from '~/config/typesMapping';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const { data: posts } = await dataProvider.getList('Project');
+  return posts
+    .filter((project) => Object.values(projectTypes).includes(project['pair:hasType']))
+    .map((project) => ({
+      params: {
+        slug: project.id,
+        type: Object.keys(projectTypes).find((type) => projectTypes[type] === project['pair:hasType']),
+      },
+      props: project,
+    }));
+}
+
+const post = Astro.props;
+
+const metadata = {
+  title: post['pair:label'],
+  description: post['pair:comment'],
+};
+---
+
+<Layout metadata={metadata}>
+  <SinglePost post={post} />
+  <ToBlogLink />
+</Layout>
