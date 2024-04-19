@@ -11,11 +11,11 @@ export const headerData = {
         },
         {
           text: 'Organisations membres',
-          href: getPermalink('/homes/startup'),
+          href: getPermalink('/organisations'),
         },
         {
           text: "L'équipe",
-          href: getPermalink('/homes/mobile-app'),
+          href: getPermalink('/equipe'),
         },
         {
           text: 'Histoire',

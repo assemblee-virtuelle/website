@@ -1,0 +1,78 @@
+---
+import dataProvider from '~/config/dataProvider';
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+import Members from '~/components/common/Members.astro';
+import Projects from '~/components/common/Projects.astro';
+import Websites from '~/components/common/Websites.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const { data: organizations } = await dataProvider.getList('Organization');
+  return organizations.map((organization) => ({
+    params: {
+      slug: organization.id,
+    },
+    props: organization,
+  }));
+}
+
+const organization = Astro.props;
+
+const metadata = {
+  title: organization['pair:label'],
+  description: organization['pair:comment'],
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="py-8 sm:py-16 mx-auto max-w-4xl">
+    <article>
+      <header class="flex mb-4">
+        <div class="flex-none w-36">
+          {
+            organization.image && (
+              <Image
+                src={organization.image}
+                class="object-cover w-36 h-36 rounded shadow-lg shadow-slate-500 bg-white dark:bg-slate-700"
+                widths={[400, 900]}
+                width={900}
+                sizes="(max-width: 900px) 400px, 900px"
+                alt={organization['pair:label']}
+                aspectRatio="16:9"
+                loading="lazy"
+                decoding="async"
+              />
+            )
+          }
+        </div>
+        <div class="grow pl-6">
+          <header class="flex flex-col h-full">
+            <h1
+              class="grow text-4xl md:text-5xl mt-12 font-bold leading-tighter tracking-tighter font-heading align-text-bottom"
+            >
+              {organization['pair:label']}
+            </h1>
+            <p class="flex-none">
+              <span
+                class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 font-medium rounded-md"
+              >
+                Organisation membre de l'AV
+              </span>
+            </p>
+          </header>
+        </div>
+      </header>
+      <p class="flex-grow text-muted dark:text-slate-400 text-lg">
+        {organization['pair:description']}
+      </p>
+      <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3">Canaux de communication</h3>
+      <Websites urls={organization['pair:homePage']} />
+      <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3">Membres</h3>
+      <Members associationsUris={organization['pair:organizationOfMembership']} />
+      <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3">Projets</h3>
+      <Projects projectsUris={organization['pair:involvedIn']} />
+    </article>
+  </section>
+</Layout>

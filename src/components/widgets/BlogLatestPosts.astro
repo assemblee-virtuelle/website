@@ -34,8 +34,6 @@ const { data: posts } = await dataProvider.getList('BlogPost', {
   sort: { field: 'dc:created', order: 'DESC' },
   pagination: { page: 1, perPage: count },
 });
-
-console.log('posts', posts);
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container} bg={bg}>

@@ -1,6 +1,4 @@
 ---
-import { getPermalink } from '~/utils/permalinks';
-
 import dataProvider from '~/config/dataProvider';
 
 export interface Props {
@@ -12,8 +10,6 @@ const { personUri } = Astro.props;
 const { data: person } = await dataProvider.getOne('Person', {
   id: personUri,
 });
-
-console.log('person', person);
 ---
 
 {

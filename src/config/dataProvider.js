@@ -15,9 +15,17 @@ export default dataProvider({
     },
     Organization: {
       types: ['pair:Organization'],
+      list: {
+        filter: {
+          'pair:partnerOf': 'https://data.virtual-assembly.org/organizations/assemblee_virtuelle',
+        },
+      },
     },
     Person: {
       types: ['pair:Person'],
+    },
+    MembershipAssociation: {
+      types: ['pair:MembershipAssociation'],
     },
     BlogPost: {
       types: ['pair:Document'],

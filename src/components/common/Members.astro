@@ -1,0 +1,25 @@
+---
+import dataProvider from '~/config/dataProvider';
+
+export interface Props {
+  associationsUris: string | [string];
+}
+
+const { associationsUris } = Astro.props;
+
+const { data: associations } = await dataProvider.getMany('MembershipAssociation', {
+  ids: Array.isArray(associationsUris) ? associationsUris : [associationsUris],
+});
+
+const { data: members } = await dataProvider.getMany('Person', {
+  ids: associations.map((a) => a['pair:membershipActor']),
+});
+---
+
+{
+  members?.map((member) => (
+    <div class="grid gap-4 grid-cols-3">
+      <img class="w-36 h-36 rounded-full" src={member.image} alt={member['pair:label']} />
+    </div>
+  ))
+}

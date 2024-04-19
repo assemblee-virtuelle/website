@@ -1,9 +1,11 @@
 ---
+import { marked } from 'marked';
+import Image from '~/components/common/Image.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import dataProvider from '~/config/dataProvider';
 import { projectTypes } from '~/config/typesMapping';
+import Organization from '~/components/common/Organization.astro';
 
 export const prerender = true;
 
@@ -20,15 +22,58 @@ export async function getStaticPaths() {
     }));
 }
 
-const post = Astro.props;
+const project = Astro.props;
 
 const metadata = {
-  title: post['pair:label'],
-  description: post['pair:comment'],
+  title: project['pair:label'],
+  description: project['pair:comment'],
 };
 ---
 
 <Layout metadata={metadata}>
-  <SinglePost post={post} />
-  <ToBlogLink />
+  <section class="py-8 sm:py-16 lg:py-20 mx-auto">
+    <article>
+      <header class={project.image ? '' : ''}>
+        <h1
+          class="px-4 sm:px-6 max-w-4xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
+          {project['pair:label']}
+        </h1>
+        <p
+          class="max-w-4xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
+        >
+          {project['pair:comment'] || project['pair:description'].substring(0, 200)}
+        </p>
+
+        {
+          project.image ? (
+            <Image
+              src={project.image}
+              class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+              widths={[400, 900]}
+              sizes="(max-width: 900px) 400px, 900px"
+              alt={project?.['pair:comment'] || ''}
+              width={900}
+              height={506}
+              loading="eager"
+              decoding="async"
+            />
+          ) : (
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+              <div class="border-t dark:border-slate-700" />
+            </div>
+          )
+        }
+      </header>
+      <div
+        class="mx-auto px-6 sm:px-6 max-w-4xl prose prose-lg dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px]"
+      >
+        <Fragment set:html={marked.parse(project['pair:description'])} />
+      </div>
+      <div class="mx-auto px-6 sm:px-6 max-w-4xl mt-8">
+        <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3">Proposé par</h3>
+        <Organization involves={project['pair:involves']} />
+      </div>
+    </article>
+  </section>
 </Layout>
