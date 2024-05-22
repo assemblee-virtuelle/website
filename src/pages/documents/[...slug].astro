@@ -1,0 +1,26 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import dataProvider from '~/config/dataProvider';
+import Document from '~/components/common/Document.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const { data: posts } = await dataProvider.getList('Document');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+
+const metadata = {
+  title: post['pair:label'],
+  description: post['pair:comment'],
+};
+---
+
+<Layout metadata={metadata}>
+  <Document post={post} />
+</Layout>

@@ -6,8 +6,10 @@ export const headerData = {
       text: "L'association",
       links: [
         {
-          text: "Statuts, raison d'être, code social",
-          href: getPermalink('/homes/saas'),
+          text: "Raison d'être et code social",
+          href: getPermalink(
+            '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F7bc5eb12-3772-4cad-b14f-ca90966e4810'
+          ),
         },
         {
           text: 'Organisations membres',
@@ -19,7 +21,9 @@ export const headerData = {
         },
         {
           text: 'Histoire',
-          href: getPermalink('/homes/personal'),
+          href: getPermalink(
+            '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22'
+          ),
         },
       ],
     },
@@ -45,8 +49,17 @@ export const headerData = {
       ],
     },
     {
-      text: 'Blog',
-      href: '/blog',
+      text: 'Actualités',
+      links: [
+        {
+          text: 'Blog',
+          href: '/blog',
+        },
+        {
+          text: 'Agenda',
+          href: '/agenda',
+        },
+      ],
     },
     {
       text: 'Communauté',
@@ -70,7 +83,6 @@ export const headerData = {
       ],
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
@@ -78,9 +90,9 @@ export const footerData = {
     {
       title: "L'association",
       links: [
-        { text: 'Statuts', href: '#' },
+        { text: "Raison d'être et code social", href: '#' },
         { text: 'Organisations membres', href: '#' },
-        { text: 'Equipe', href: '#' },
+        { text: "L'équipe", href: '#' },
         { text: 'Histoire', href: '#' },
       ],
     },
@@ -96,8 +108,8 @@ export const footerData = {
     {
       title: 'Actualités',
       links: [
-        { text: 'Blog', href: '#' },
-        { text: 'Evénements', href: '#' },
+        { text: 'Blog', href: '/blog' },
+        { text: 'Agenda', href: '#' },
       ],
     },
     {
@@ -111,14 +123,14 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    // { text: 'Terms', href: getPermalink('/terms') },
+    // { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
     { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: '#' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/assemblee-virtuelle.org' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/assemblee-virtuelle' },
   ],
   footNote: `
     Crée avec <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://astro.build/">Astro</a> et <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://archipel.assemblee-virtuelle.org">des données sémantiques</a>.

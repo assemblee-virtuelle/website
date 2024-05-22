@@ -35,6 +35,12 @@ export default dataProvider({
         },
       },
     },
+    Document: {
+      types: ['pair:Document'],
+    },
+    Theme: {
+      types: ['pair:Theme'],
+    },
   },
   ontologies,
   jsonContext: [

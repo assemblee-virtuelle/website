@@ -2,10 +2,9 @@
 import { marked } from 'marked';
 import Image from '~/components/common/Image.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import dataProvider from '~/config/dataProvider';
 import { projectTypes } from '~/config/typesMapping';
-import Organization from '~/components/common/Organization.astro';
+import Actors from '~/components/common/Actors.astro';
 
 export const prerender = true;
 
@@ -71,8 +70,8 @@ const metadata = {
         <Fragment set:html={marked.parse(project['pair:description'])} />
       </div>
       <div class="mx-auto px-6 sm:px-6 max-w-4xl mt-8">
-        <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3">Proposé par</h3>
-        <Organization involves={project['pair:involves']} />
+        <h3 class="text-2xl font-bold leading-tighter tracking-tighter font-heading mt-3 mb-1">Implique</h3>
+        <Actors actorsUris={project['pair:involves']} />
       </div>
     </article>
   </section>
