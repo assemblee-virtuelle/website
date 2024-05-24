@@ -2,15 +2,16 @@
 import dataProvider from '~/config/dataProvider';
 import Layout from '~/layouts/PageLayout.astro';
 import Image from '~/components/common/Image.astro';
-import Members from '~/components/common/Members.astro';
-import Projects from '~/components/common/Projects.astro';
-import Websites from '~/components/common/Websites.astro';
+import Members from '~/components/organizations/Members.astro';
+import Projects from '~/components/projects/Projects.astro';
+import Websites from '~/components/organizations/Websites.astro';
+import type { Organization } from '~/types';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const { data: organizations } = await dataProvider.getList('Organization');
-  return organizations.map((organization) => ({
+  const { data } = await dataProvider.getList('Organization');
+  return data.map((organization) => ({
     params: {
       slug: organization.id,
     },
@@ -18,7 +19,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const organization = Astro.props;
+const organization = Astro.props as Organization;
 
 const metadata = {
   title: organization['pair:label'],

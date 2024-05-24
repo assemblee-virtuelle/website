@@ -1,0 +1,53 @@
+{
+  "redirects": [
+    {
+      "source": "/ontologies/pair",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "application/ld+json"
+        }
+      ],
+      "destination": "/ontologies/pair-2021-summer/ontology.json",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/turtle"
+        }
+      ],
+      "destination": "/ontologies/pair-2021-summer/ontology.ttl",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair",
+      "destination": "/ontologies/pair-2021-summer",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair/:path*",
+      "destination": "/ontologies/pair-2021-summer/:path*",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair-2019-summer",
+      "destination": "/ontologies/pair-2019-summer/index-en.html",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair-2020-winter",
+      "destination": "/ontologies/pair-2020-winter/index-en.html",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair-2021-summer",
+      "destination": "/ontologies/pair-2021-summer/index-en.html",
+      "statusCode": 303
+    }
+  ]
+}

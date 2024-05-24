@@ -4,24 +4,25 @@ import Image from '~/components/common/Image.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import dataProvider from '~/config/dataProvider';
 import { projectTypes } from '~/config/typesMapping';
-import Actors from '~/components/common/Actors.astro';
+import Actors from '~/components/actors/Actors.astro';
+import type { Project } from '~/types';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const { data: posts } = await dataProvider.getList('Project');
-  return posts
-    .filter((project) => Object.values(projectTypes).includes(project['pair:hasType']))
+  const { data } = await dataProvider.getList('Project');
+  return data
+    .filter((project) => Object.values(projectTypes).some((type) => type.uri === project['pair:hasType']))
     .map((project) => ({
       params: {
         slug: project.id,
-        type: Object.keys(projectTypes).find((type) => projectTypes[type] === project['pair:hasType']),
+        type: Object.keys(projectTypes).find((type) => projectTypes[type].uri === project['pair:hasType']),
       },
       props: project,
     }));
 }
 
-const project = Astro.props;
+const project = Astro.props as Project;
 
 const metadata = {
   title: project['pair:label'],

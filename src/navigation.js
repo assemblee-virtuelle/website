@@ -55,10 +55,6 @@ export const headerData = {
           text: 'Blog',
           href: '/blog',
         },
-        {
-          text: 'Agenda',
-          href: '/agenda',
-        },
       ],
     },
     {
@@ -107,10 +103,7 @@ export const footerData = {
     },
     {
       title: 'Actualités',
-      links: [
-        { text: 'Blog', href: '/blog' },
-        { text: 'Agenda', href: '#' },
-      ],
+      links: [{ text: 'Blog', href: '/blog' }],
     },
     {
       title: 'Communauté',

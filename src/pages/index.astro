@@ -11,6 +11,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FeaturedProjects from '~/components/projects/FeaturedProjects.astro';
 
 const metadata = {
   title:
@@ -82,9 +83,48 @@ const metadata = {
 
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts title="Derniers articles" />
+  <FeaturedProjects
+    title="Les solutions logicielles de l'écosystème"
+    subtitle="Les logiciels développés ou promus dans le cadre de l’Assemblée Virtuelle ont vocation à favoriser le développement d’écosystèmes logiciels, de systèmes d’information décentralisés et fédérés, au service de l’autonomie et de la mise en réseau de leurs communautés d’utilisateurs."
+    callToAction={{
+      variant: 'primary',
+      text: 'Tous les projets logiciels',
+      href: '/projets/application',
+      icon: 'tabler:arrow-right',
+    }}
+  />
 
   <!-- CallToAction Widget *********** -->
+
+  <Features2
+    title="Nos moyens d'action"
+    columns={3}
+    items={[
+      {
+        title: 'Recherche-action',
+        description:
+          'Autour des architectures distribuées (technologies, méthodologies au service des organisations en réseau)',
+        icon: 'tabler:settings-search',
+      },
+      {
+        title: 'Sensibilisation & essaimage',
+        description:
+          "Partage des technologies et méthodologies sous license libre, animation d'une communauté apprenante, organisation d'événements",
+        icon: 'tabler:arrows-maximize',
+      },
+      {
+        title: 'Prestation de services',
+        description: "En collaboration avec nos organisations membres, qui reversent une contribution à l'association",
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <BlogLatestPosts title="Derniers articles" />
 
   <CallToAction
     actions={[
@@ -98,10 +138,16 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">Rejoignez notre communauté !</Fragment>
-
     <Fragment slot="subtitle">
       Notre forum de discussion est l'espace de prédilection pour interragir avec notre communauté. N'hésitez pas à vous
       inscrire, cela vous permettra de recevoir un récap hebdomadaire avec les messages les plus populaires.
+    </Fragment>
+    <Fragment slot="bg">
+      <div
+        class="bg-cover w-full h-[740px] flex items-center justify-center"
+        style="background-image: url('/hero.jpg');"
+      >
+      </div>
     </Fragment>
   </CallToAction>
 </Layout>

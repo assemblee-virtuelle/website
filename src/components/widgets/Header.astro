@@ -99,6 +99,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                             { 'aw-link-active': href2 === currentPath },
                           ]}
                           href={href2}
+                          target={href2?.startsWith('http') ? 'blank' : undefined}
                         >
                           {text2}
                         </a>
@@ -113,6 +114,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={href}
+                  target={href?.startsWith('http') ? 'blank' : undefined}
                 >
                   {text}
                 </a>

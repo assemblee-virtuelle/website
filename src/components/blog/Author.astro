@@ -2,25 +2,25 @@
 import dataProvider from '~/config/dataProvider';
 
 export interface Props {
-  personUri: string;
+  actorUri: string;
 }
 
-const { personUri } = Astro.props;
+const { actorUri } = Astro.props;
 
-const { data: person } = await dataProvider.getOne('Person', {
-  id: personUri,
+const { data: actor } = await dataProvider.getOne('Person', {
+  id: actorUri,
 });
 ---
 
 {
-  person && (
+  actor && (
     <div class="flex">
       <div class="flex-none">
-        <img src={person.image} class="w-24 h-24 rounded-md" />
+        <img src={actor.image} class="w-24 h-24 rounded-md" />
       </div>
       <div class="grow pl-3 prose">
-        <h3>Auteur: {person['pair:label']}</h3>
-        <p>{person['pair:comment']}</p>
+        <h3>Auteur: {actor['pair:label']}</h3>
+        <p>{actor['pair:comment']}</p>
       </div>
     </div>
   )

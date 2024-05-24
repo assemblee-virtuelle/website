@@ -13,7 +13,6 @@
 - ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
 - ✅ Generation of **project sitemap** based on your routes.
 - ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
 
 <br>
 
@@ -32,17 +31,21 @@
 <details open>
 <summary>Table of Contents</summary>
 
-- [Demo](#demo)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Related Projects](#related-projects)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [🚀 AstroWind](#-astrowind)
+  - [Demo](#demo)
+  - [Getting started](#getting-started)
+    - [Project structure](#project-structure)
+    - [Commands](#commands)
+    - [Configuration](#configuration)
+    - [Deploy](#deploy)
+      - [Deploy to production (manual)](#deploy-to-production-manual)
+      - [Deploy to Netlify](#deploy-to-netlify)
+      - [Deploy to Vercel](#deploy-to-vercel)
+  - [Frequently Asked Questions](#frequently-asked-questions)
+  - [Related projects](#related-projects)
+  - [Contributing](#contributing)
+  - [Acknowledgements](#acknowledgements)
+  - [License](#license)
 
 </details>
 
@@ -119,8 +122,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 
-
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main)  [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind)  [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)   
+[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
 
@@ -208,11 +210,6 @@ apps:
       pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
         index: false
-
-analytics:
-  vendors:
-    googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
