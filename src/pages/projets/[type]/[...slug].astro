@@ -5,6 +5,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import dataProvider from '~/config/dataProvider';
 import { projectTypes } from '~/config/typesMapping';
 import Actors from '~/components/actors/Actors.astro';
+import Button from '~/components/ui/Button.astro';
 import type { Project } from '~/types';
 
 export const prerender = true;
@@ -33,15 +34,20 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="py-8 sm:py-16 lg:py-20 mx-auto">
     <article>
-      <header class={project.image ? '' : ''}>
-        <h1
-          class="px-4 sm:px-6 max-w-4xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+      <header class="relative mx-auto max-w-4xl">
+        <Button
+          variant="primary"
+          class="absolute right-0 top-0 px-6 py-2"
+          target="_blank"
+          icon="tabler:edit"
+          href={`https://archipel.assemblee-virtuelle.org/Project/${encodeURIComponent(project.id)}`}
         >
+          Editer
+        </Button>
+        <h1 class="px-4 sm:px-6 text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
           {project['pair:label']}
         </h1>
-        <p
-          class="max-w-4xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
-        >
+        <p class="mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify">
           {project['pair:comment'] || project['pair:description'].substring(0, 200)}
         </p>
 

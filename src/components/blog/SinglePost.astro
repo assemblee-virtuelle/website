@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import getReadingTime from 'reading-time';
+import Button from '../ui/Button.astro';
 import { marked } from 'marked';
 
 import Author from '~/components/blog/Author.astro';
@@ -22,8 +23,17 @@ const { post } = Astro.props;
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
-    <header class={post.image ? '' : ''}>
-      <div class="flex justify-between flex-col sm:flex-row max-w-4xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+    <header class="relative max-w-4xl mx-auto">
+      <Button
+        variant="primary"
+        class="absolute right-0 top-0 px-6 py-2"
+        target="_blank"
+        icon="tabler:edit"
+        href={`https://archipel.assemblee-virtuelle.org/Document/${encodeURIComponent(post.id)}`}
+      >
+        Editer
+      </Button>
+      <div class="flex justify-between flex-col sm:flex-row mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p>
           <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
           <!-- <time datetime={String(post['dc:created'])} class="inline-block"
@@ -43,14 +53,10 @@ const { post } = Astro.props;
           <>· {Math.ceil(getReadingTime(post['pair:description']).minutes)} min read</>
         </p>
       </div>
-      <h1
-        class="px-4 sm:px-6 max-w-4xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
-      >
+      <h1 class="px-4 sm:px-6 mr-24 text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
         {post['pair:label']}
       </h1>
-      <p
-        class="max-w-4xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
-      >
+      <p class="mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify">
         {post['pair:comment'] || post['pair:description'].substring(0, 200)}
       </p>
 
@@ -80,7 +86,7 @@ const { post } = Astro.props;
       <Fragment set:html={marked.parse(post['pair:description'] || '')} />
     </div>
     <div class="mx-auto px-6 sm:px-6 max-w-4xl mt-8 flex justify-between flex-col sm:flex-row">
-      <Author actorUri={post['dc:creator']} />
+      {post['dc:creator'] && <Author actorUri={post['dc:creator']} />}
       <!-- <Projects title="Projets liés" projectsUris={post['pair:documents']} /> -->
       <!-- <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" /> -->
     </div>

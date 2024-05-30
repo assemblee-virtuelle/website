@@ -6,10 +6,22 @@
         {
           "type": "header",
           "key": "accept",
-          "value": "application/ld+json"
+          "value": "application/ld\\+json"
         }
       ],
       "destination": "/ontologies/pair-2021-summer/ontology.json",
+      "statusCode": 303
+    },
+    {
+      "source": "/ontologies/pair",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "application/rdf\\+xml"
+        }
+      ],
+      "destination": "/ontologies/pair-2021-summer/ontology.xml",
       "statusCode": 303
     },
     {
@@ -26,12 +38,19 @@
     },
     {
       "source": "/ontologies/pair",
-      "destination": "/ontologies/pair-2021-summer",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "application/n-triples"
+        }
+      ],
+      "destination": "/ontologies/pair-2021-summer/ontology.nt",
       "statusCode": 303
     },
     {
-      "source": "/ontologies/pair/:path*",
-      "destination": "/ontologies/pair-2021-summer/:path*",
+      "source": "/ontologies/pair",
+      "destination": "/ontologies/pair-2021-summer",
       "statusCode": 303
     },
     {

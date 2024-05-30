@@ -16,7 +16,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     const filteredData = data.filter((resource) => resource['pair:hasType'] === projectTypes[type].uri);
     return paginate(filteredData, {
       params: { type },
-      pageSize: 8,
+      pageSize: 40,
     });
   });
 }) satisfies GetStaticPaths;

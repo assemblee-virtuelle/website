@@ -1,4 +1,4 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -7,23 +7,15 @@ export const headerData = {
       links: [
         {
           text: "Raison d'être et code social",
-          href: getPermalink(
-            '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F7bc5eb12-3772-4cad-b14f-ca90966e4810'
-          ),
+          href: '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F7bc5eb12-3772-4cad-b14f-ca90966e4810',
         },
         {
           text: 'Organisations membres',
-          href: getPermalink('/organisations'),
-        },
-        {
-          text: "L'équipe",
-          href: getPermalink('/equipe'),
+          href: '/organisations',
         },
         {
           text: 'Histoire',
-          href: getPermalink(
-            '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22'
-          ),
+          href: '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22',
         },
       ],
     },
@@ -120,8 +112,8 @@ export const footerData = {
     // { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: '#' },
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
+    // { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: '#' },
+    // { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/assemblee-virtuelle' },
   ],

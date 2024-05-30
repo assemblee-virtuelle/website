@@ -5,6 +5,7 @@ import Image from '~/components/common/Image.astro';
 import Members from '~/components/organizations/Members.astro';
 import Projects from '~/components/projects/Projects.astro';
 import Websites from '~/components/organizations/Websites.astro';
+import Button from '~/components/ui/Button.astro';
 import type { Organization } from '~/types';
 
 export const prerender = true;
@@ -30,7 +31,16 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <article>
-      <header class="flex mb-4">
+      <header class="flex mb-4 relative">
+        <Button
+          variant="primary"
+          class="absolute right-0 top-0 px-6 py-2"
+          target="_blank"
+          icon="tabler:edit"
+          href={`https://archipel.assemblee-virtuelle.org/Organization/${encodeURIComponent(organization.id)}`}
+        >
+          Editer
+        </Button>
         <div class="flex-none w-36">
           {
             organization.image && (

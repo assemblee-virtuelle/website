@@ -12,7 +12,7 @@ export const projectTypes = {
   methodologies: {
     uri: 'https://data.virtual-assembly.org/types/methodologie',
     name: 'Méthodologies',
-    description: "our permettre l'interopérabilité des systèmes d'information",
+    description: "Reposant sur les principes de l'open-source et du pair-à-pair",
   },
   'innovations-sociales': {
     uri: 'https://data.virtual-assembly.org/types/innovation-sociale',
