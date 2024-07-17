@@ -11,16 +11,16 @@ metadata:
   title:
     default: Assemblée Virtuelle
     template: '%s — Assemblée Virtuelle'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: 'Favoriser la mise en réseau des acteurs de la transition grâce à la mise en synergie de leurs systèmes d’information.'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: Assemblée Virtuelle
     images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
+      - url: '/full-logo.png'
+        width: 500
+        height: 500
     type: website
   twitter:
     handle: '@onwidget'
