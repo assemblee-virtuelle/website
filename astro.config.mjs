@@ -9,7 +9,7 @@ import icon from 'astro-icon';
 import tasks from './src/utils/tasks';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS, SITE } from './src/utils/config.ts';
-import vercel from '@astrojs/vercel/serverless';
+import node from '@astrojs/node';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
   ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
@@ -69,5 +69,7 @@ export default defineConfig({
       },
     },
   },
-  adapter: vercel(),
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
