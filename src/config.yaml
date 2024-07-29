@@ -1,6 +1,6 @@
 site:
   name: Assemblée Virtuelle
-  site: 'https://astro.assemblee-virtuelle.org'
+  site: 'https://assemblee-virtuelle.org'
   base: '/'
   trailingSlash: false
 
