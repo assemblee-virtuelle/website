@@ -18,5 +18,6 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
+          cd deployment_semapps_av
           docker compose build av-website
           docker compose up -d av-website
