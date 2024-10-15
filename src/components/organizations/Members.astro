@@ -28,6 +28,7 @@ const { data: roles } = await dataProvider.getMany('Person', {
         {associations?.map((association) => {
           const member = members.find((m) => m.id === association['pair:membershipActor']);
           const role = roles.find((r) => r.id === association['pair:membershipRole']);
+          if (typeof member !== 'undefined') {
           return (
             <div>
               <a data-modal-target={member.id} data-modal-toggle={member.id} class="cursor-pointer">
@@ -42,8 +43,10 @@ const { data: roles } = await dataProvider.getMany('Person', {
               <ActorModal actor={member} />
             </div>
           );
+          }
         })}
       </div>
     </div>
   )
+
 }
