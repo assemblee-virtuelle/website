@@ -68,6 +68,10 @@ export const headerData = {
           text: 'GitHub',
           href: 'https://github.com/assemblee-virtuelle',
         },
+        {
+          text: 'Matrix',
+          href: 'https://matrix.to/#/#virtual_assembly:matrix.org',
+        },
       ],
     },
   ],
