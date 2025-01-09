@@ -1,4 +1,5 @@
 import { getAsset } from './utils/permalinks';
+import { projectTypes } from './config/typesMapping';
 
 export const headerData = {
   links: [
@@ -21,24 +22,11 @@ export const headerData = {
     },
     {
       text: 'Projets',
-      links: [
-        {
-          text: 'Applications',
-          href: '/projets/applications',
-        },
-        {
-          text: 'Ontologies',
-          href: '/projets/ontologies',
-        },
-        {
-          text: 'Méthodologies',
-          href: '/projets/methodologies',
-        },
-        {
-          text: 'Innovations sociales',
-          href: '/projets/innovations-sociales',
-        },
-      ],
+      links: Object.entries(projectTypes).map(([key, p]) => ({
+        title: p.name,
+        text: p.name,
+        href: '/projets/' + key,
+      })),
     },
     {
       text: 'Actualités',

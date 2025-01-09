@@ -1,22 +1,26 @@
 export const projectTypes = {
+  frameworks: {
+    uri: 'https://data.virtual-assembly.org/types/framewrok',
+    name: 'Frameworks',
+    description: 'Pour créer des applications sémantiques et interopérables',
+    icon: 'flat-color-icons:automotive',
+  },
   applications: {
     uri: 'https://data.virtual-assembly.org/types/application',
     name: 'Applications',
-    description: 'Logiciels de cartographie, réseaux sociaux, outils collaboratifs',
+    description: 'Applications et logiciels utilisables par tout un chacun',
+    icon: 'flat-color-icons:two-smartphones',
+  },
+  outils: {
+    uri: 'https://data.virtual-assembly.org/types/outils-et-utilitaires',
+    name: 'Outils et utilitaires',
+    description: 'Pour aider à mieux explorer et gérer les données sémantiques',
+    icon: 'flat-color-icons:automatic',
   },
   ontologies: {
     uri: 'https://data.virtual-assembly.org/types/ontologie',
     name: 'Ontologies',
-    description: "Pour permettre l'interopérabilité des systèmes d'information",
-  },
-  methodologies: {
-    uri: 'https://data.virtual-assembly.org/types/methodologie',
-    name: 'Méthodologies',
-    description: "Reposant sur les principes de l'open-source et du pair-à-pair",
-  },
-  'innovations-sociales': {
-    uri: 'https://data.virtual-assembly.org/types/innovation-sociale',
-    name: 'Innovations sociales',
-    description: "Co-développement de projets s'inscrivant dans la transition",
+    description: "Vocabulaires communs pour faciliter l'interopérabilité",
+    icon: 'flat-color-icons:voice-presentation',
   },
 };
