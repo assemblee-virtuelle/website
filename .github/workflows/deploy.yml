@@ -19,5 +19,6 @@ jobs:
         port: 22
         script: |
           cd deployment_semapps_av
+          docker system prune --force
           docker compose build av-website
           docker compose up -d av-website

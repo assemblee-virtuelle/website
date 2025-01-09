@@ -56,6 +56,10 @@ export const headerData = {
           text: 'GitHub',
           href: 'https://github.com/assemblee-virtuelle',
         },
+        {
+          text: 'Matrix',
+          href: 'https://matrix.to/#/#virtual_assembly:matrix.org',
+        },
       ],
     },
   ],
@@ -68,17 +72,17 @@ export const footerData = {
       links: [
         { text: "Raison d'être et code social", href: '#' },
         { text: 'Organisations membres', href: '#' },
-        { text: "L'équipe", href: '#' },
-        { text: 'Histoire', href: '#' },
+        { text: "L'équipe", href: '/organisations' },
+        { text: 'Histoire', href: 'https://virtual-assembly.org/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22' },
       ],
     },
     {
       title: 'Projets',
       links: [
-        { text: 'Applications', href: '#' },
-        { text: 'Ontologies', href: '#' },
-        { text: 'Méthodologies', href: '#' },
-        { text: 'Innovations sociales', href: '#' },
+        { text: 'Applications', href: '/projets/applications' },
+        { text: 'Ontologies', href: '/projets/ontologies' },
+        { text: 'Méthodologies', href: '/projets/methodologies' },
+        { text: 'Innovations sociales', href: '/projets/innovations-sociales' },
       ],
     },
     {
@@ -88,10 +92,10 @@ export const footerData = {
     {
       title: 'Communauté',
       links: [
-        { text: 'Forum', href: '#' },
-        { text: 'Chat', href: '#' },
-        { text: 'PeerTube', href: '#' },
-        { text: 'GitHub', href: '#' },
+        { text: 'Forum', href: 'https://forums.assemblee-virtuelle.org/' },
+        { text: 'Chat', href: 'https://forums.assemblee-virtuelle.org/chat/c/general/6' },
+        { text: 'PeerTube', href: 'https://peertube.virtual-assembly.org/' },
+        { text: 'GitHub', href: 'https://github.com/assemblee-virtuelle/' },
       ],
     },
   ],
