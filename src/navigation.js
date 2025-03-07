@@ -73,8 +73,8 @@ export const footerData = {
         { text: "Raison d'être et code social", href: '#' },
         { text: 'Organisations membres', href: '#' },
         { text: "L'équipe", href: '/organisations' },
-        { text: 'Histoire', href: 'https://virtual-assembly.org/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22' },
-        { text: 'Mentions légales', href: 'https://virtual-assembly.org/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fpages%2Fmentions-legales' },
+        { text: 'Histoire', href: '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fdocuments%2F6d255935-1515-495a-95c1-d458d6aaee22' },
+        { text: 'Mentions légales', href: '/documents/https%3A%2F%2Fdata.virtual-assembly.org%2Fpages%2Fmentions-legales' },
       ],
     },
     {
